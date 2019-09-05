@@ -13,13 +13,16 @@ class Gambar extends CI_Controller {
 	public function upload()
 	{
 		if( isset($_SESSION["email_user"]) ){
+
 					$config['upload_path']          = './gambar/';
 					$config['allowed_types']        = 'gif|jpg|png';
 					$config['max_size']             = 100;
 					$config['max_width']            = 1024;
 					$config['max_height']           = 768;
+
 					$this->load->library('upload', $config);
-					if ( ! $this->upload->do_upload('gambar')){
+
+					if ( ! $this->upload->do_upload('gambar') ){
 						$error = array('error' => $this->upload->display_errors());
 						$this->load->view('partials/header');
 						$this->load->view('gambar/upload', $error);
@@ -32,13 +35,13 @@ class Gambar extends CI_Controller {
 			redirect('Home');
 		}
 	}
-  public function detail($id)
-  {
-					$data = $this->gambar_model->get($id);
-					$data['id'] = $id;
-					$data['komentar_data'] = $this->komentar_model->get_dengan_id_gambar($id);
-          $this->load->view('partials/header');
-          $this->load->view('gambar/detail', $data);
-          $this->load->view('partials/footer');
-  }
+//   public function detail($id)
+//   {
+// 					$data = $this->gambar_model->get($id);
+// 					$data['id'] = $id;
+// 					$data['komentar_data'] = $this->komentar_model->get_dengan_id_gambar($id);
+//           $this->load->view('partials/header');
+//           $this->load->view('gambar/detail', $data);
+//           $this->load->view('partials/footer');
+//   }
 }
