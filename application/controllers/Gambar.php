@@ -16,7 +16,7 @@ class Gambar extends CI_Controller {
 		if( isset($_SESSION["email_user"]) ){
 
 					$config['upload_path']          = './gambar/';
-					$config['allowed_types']        = 'gif|jpg|png|vlv|3gp|mp4|mpeg';
+					$config['allowed_types']        = 'gif|jpg|png|flv|3gp|mp4|mpeg';
 					$config['max_size']             = 100000;
 					// $config['max_width']            = 1024;
 					// $config['max_height']           = 768;

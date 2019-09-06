@@ -30,7 +30,7 @@
                       <a class='nav-link'>Hai ".$_SESSION["email_user"]."!</a>
                     </li>
                     <li class='nav-item'>
-                      <a class='nav-link' href='". site_url('gambar/upload'). "'>Upload Gambar</a>
+                      <a class='nav-link' href='". site_url('gambar/upload'). "'>Upload</a>
                     </li>
                     <li class='nav-item'>
                       <a class='nav-link'  href='". site_url('user/logout'). "' >Logout</a>
