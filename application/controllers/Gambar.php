@@ -7,7 +7,8 @@ class Gambar extends CI_Controller {
 			$this->load->model('gambar_model');
 			$this->load->model('komentar_model');
 			$this->load->helper('url_helper');
- 		  $this->load->helper(array('form', 'url'));
+    		$this->load->helper(array('url','html','form'));
+		   
 			session_start();
 	}
 	public function upload()
@@ -15,8 +16,8 @@ class Gambar extends CI_Controller {
 		if( isset($_SESSION["email_user"]) ){
 
 					$config['upload_path']          = './gambar/';
-					$config['allowed_types']        = 'gif|jpg|png';
-					$config['max_size']             = 2024;
+					$config['allowed_types']        = 'gif|jpg|png|vlv|3gp|mp4|mpeg';
+					$config['max_size']             = 100000;
 					// $config['max_width']            = 1024;
 					// $config['max_height']           = 768;
 
@@ -35,6 +36,7 @@ class Gambar extends CI_Controller {
 			redirect('Home');
 		}
 	}
+
   public function detail($id)
    {
  			$data = $this->gambar_model->get($id);
