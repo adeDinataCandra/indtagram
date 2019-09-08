@@ -39,11 +39,16 @@ class Gambar extends CI_Controller {
 
   public function detail($id)
    {
+	if( isset($_SESSION["email_user"]) ){		   
+	
  			$data = $this->gambar_model->get($id);
  			$data['id'] = $id;
  		   $data['komentar_data'] = $this->komentar_model->get_dengan_id_gambar($id);
            $this->load->view('partials/header');
            $this->load->view('gambar/detail', $data);
           $this->load->view('partials/footer');
+  }else{
+	redirect('Home');
   }
+}
 }
